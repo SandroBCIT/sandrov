@@ -1,0 +1,131 @@
+@font-face {
+    font-family: Lato;
+    src: url(./fonts/Lato-Regular.ttf);
+}
+@font-face {
+    font-family: Anton;
+    src: url(./fonts/Anton-Regular.ttf);
+}
+
+.App {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    text-align: center;
+    background-image: url(img/bg.png);
+    background-size: cover;
+    background-position: center;
+}
+
+#leftHalf {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: row-reverse;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#rightHalf {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#img1 {
+    height: 100%;
+    overflow: hidden;
+}
+
+#img2 {
+    height: 100%;
+    overflow: hidden;
+}   
+ 
+#hoverDiv1 {
+    transition: all 0.5s ease-out;   
+}
+
+#hoverDiv2 {
+    transition: all 0.5s ease-out;   
+}
+
+#hoverDiv1:hover {
+    opacity: 1;
+    transform: scale(1.04);
+}
+
+#hoverDiv2:hover {
+    opacity: 1;
+    transform: scale(1.04);
+}
+
+#info1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-family: Anton;
+    font-size: 3em;
+    color: aliceblue;
+    line-height: 60%;
+    transform: translateY(-18%);
+    z-index: 2;
+}
+
+#info2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-family: Anton;
+    font-size: 3em;
+    color: aliceblue;
+    line-height: 60%;
+    transform: translateY(-18%);
+    z-index: 2;
+}
+
+#more1 {
+    font-family: Lato;
+    font-size: .5em;
+}
+
+#more2 {
+    font-family: Lato;
+    font-size: .5em;
+}
+
+#link1 {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+#link2 {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
