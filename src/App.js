@@ -86,6 +86,8 @@ class App extends Component {
         if(this.state.tab ==1){
             return (
                 <div className="App">
+                    <button onClick={this.openChat} >Chat</button>
+                
                     <p id="info1" style={{transition: "all 1s ease-out", opacity: this.state.infoOpacity, display: this.state.infoDisplay}}>
                         <p>Alessandro</p>
                         <p>Web Development Guru</p>
@@ -113,7 +115,6 @@ class App extends Component {
                             <img id="img2" src={dov} alt="Some logo" style={{...STYLES,opacity: this.state.opacity2, transform: 'translateX(' + this.state.translate2 + ') scale(' + this.state.scale2 + ')', display:this.state.display2}} onClick={this.rightClick.bind(this)} />
                         </div>
                     </div>
-                    <button onClick={this.openChat} >Chat</button>
                 </div>
             );
         }else if(this.state.tab == 2){
