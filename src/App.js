@@ -85,7 +85,7 @@ class App extends Component {
     render() {
         if(this.state.tab ==1){
             return (
-                <div className="App">
+                <div className="App" >
                     <button onClick={this.openChat} >Chat</button>
                 
                     <p id="info1" style={{transition: "all 1s ease-out", opacity: this.state.infoOpacity, display: this.state.infoDisplay}}>
@@ -118,7 +118,7 @@ class App extends Component {
                 </div>
             );
         }else if(this.state.tab == 2){
-            return (
+            return ( 
                 <Chat />
             );   
         }
