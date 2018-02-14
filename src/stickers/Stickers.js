@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import mySocket from "socket.io-client";
 import Rooms from "./comp/Rooms";
+import './App.css';
 
 class Stickers extends Component {
     constructor(props){
