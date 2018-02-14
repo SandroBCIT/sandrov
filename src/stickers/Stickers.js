@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import mySocket from "socket.io-client";
 import Rooms from "./comp/Rooms";
 
-class Sticker extends Component {
+class Stickers extends Component {
     constructor(props){
         super(props);
         this.state={
@@ -107,4 +107,4 @@ class Sticker extends Component {
     }
 }
 
-export default Sticker;
+export default Stickers;

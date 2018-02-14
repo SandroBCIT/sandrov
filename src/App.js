@@ -134,7 +134,7 @@ class App extends Component {
         }else if(this.state.tab == 3){
             return ( 
                 <div>
-                    <Sticker />
+                    <Stickers />
                 </div>
             );   
         }
