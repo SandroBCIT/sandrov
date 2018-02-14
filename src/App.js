@@ -4,6 +4,7 @@ import sandro from './img/sandro.png';
 import dov from './img/dov.png';
 import bg from './img/bg.png';
 import Chat from './chat/Chat';
+import Stickers from './stickers/Stickers';
 
 const STYLES = {
     transition: "all 1.5s ease-out"   
