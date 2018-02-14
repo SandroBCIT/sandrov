@@ -82,12 +82,19 @@ class App extends Component {
         });  
     }
     
+    openSticker = ()=>{
+        this.setState({
+            tab: 3
+        });  
+    }
+    
     render() {
         if(this.state.tab ==1){
             return (
                 <div className="App" >
                     
                     <button onClick={this.openChat} >Chat</button>
+                    <button onClick={this.openSticker} >Chat</button>
                 
                     <p id="info1" style={{transition: "all 1s ease-out", opacity: this.state.infoOpacity, display: this.state.infoDisplay}}>
                         <p>Alessandro</p>
@@ -124,21 +131,15 @@ class App extends Component {
                     <Chat />
                 </div>
             );   
+        }else if(this.state.tab == 3){
+            return ( 
+                <div>
+                    <Sticker />
+                </div>
+            );   
         }
         
     }
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-//import './App.css';
 import mySocket from 'socket.io-client';
 
-class App extends Component {
+class Chat extends Component {
     constructor(props){
         super(props);
         
@@ -111,4 +110,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default Chat;
