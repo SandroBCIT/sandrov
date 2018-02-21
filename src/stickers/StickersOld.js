@@ -11,8 +11,7 @@ class Stickers extends Component {
             myImg2: require("./img/img2.png"), 
             allUsers:[],
             myId: null,
-            showDisplay: false,
-            stickers: []
+            showDisplay: false
         }
         
         this.handleImage = this.handleImage.bind(this);
@@ -20,7 +19,7 @@ class Stickers extends Component {
     }
     
     componentDidMount(){
-        this.socket = mySocket("https://herokusandrovserver.herokuapp.com/");
+        this.socket = mySocket("https://herokusandrovserver2.herokuapp.com/");
         
         this.socket.on("userjoined", (data)=>{
             this.setState({
@@ -51,20 +50,6 @@ class Stickers extends Component {
                 });
             });
             
-            this.refs.theDisplay.addEventListener("click", (ev)=>{
-                this.socket.emit("stick", {
-                    x: ev.pageX,
-                    y: ev.pageY,
-                    src: this.refs["u"+this.state.myId].src
-                });    
-            });
-            
-        });
-        
-        this.socket.on("newsticker", (data)=>{
-            this.setState({
-                stickers: data
-            }); 
         });
         
         this.socket.on("newmove", (data)=>{
@@ -94,12 +79,6 @@ class Stickers extends Component {
             );
         });
         
-        var allStickers = this.state.stickers.map((obj, i)=>{
-            var myStyle = {left:obj.x, top:obj.y};
-            return(
-                <img style={myStyle} ref={"u"+obj} className="allImgs" src={this.state.myImg} height={50} key={i} />
-            )    
-        });
         var comp = null;
         
         if(this.state.showDisplay === false){
@@ -111,7 +90,6 @@ class Stickers extends Component {
                 <div>
                     <div ref="theDisplay" id="display">
                         {allimgs}
-                        {allStickers}
                     </div>
                     <div id="controls">
                         {this.state.myId}
