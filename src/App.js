@@ -5,6 +5,8 @@ import dov from './img/dov.png';
 import bg from './img/bg.png';
 import Chat from './chat/Chat';
 import Stickers from './stickers/Stickers';
+import Drumset from './drumset/Drumset';
+import Coloring from './coloring/Coloring';
 
 const STYLES = {
     transition: "all 1.5s ease-out"   
@@ -76,26 +78,23 @@ class App extends Component {
             });   
         }, 2500);
     }
-    
-    openChat = ()=>{
+     
+    openTab = (data) =>{
         this.setState({
-            tab: 2
-        });  
+            tab: data
+        });     
     }
     
-    openSticker = ()=>{
-        this.setState({
-            tab: 3
-        });  
-    }
     
     render() {
-        if(this.state.tab ==1){
+        if(this.state.tab === 1){
             return (
                 <div className="App" >
                     
-                    <button onClick={this.openChat} >Chat</button>
-                    <button onClick={this.openSticker} >Stickers</button>
+                    <button className="btn" onClick={this.openTab.bind(this, "2")} >Chat</button>
+                    <button className="btn" onClick={this.openTab.bind(this, "3")} >Stickers</button>
+                    <button className="btn" onClick={this.openTab.bind(this, "4")} >Drum Set</button>
+                    <button className="btn" onClick={this.openTab.bind(this, "5")} >Coloring</button>
                 
                     <p id="info1" style={{transition: "all 1s ease-out", opacity: this.state.infoOpacity, display: this.state.infoDisplay}}>
                         <p>Alessandro</p>
@@ -113,29 +112,43 @@ class App extends Component {
                         </p>
                     </p>
 
+                    <div id="halfsContainer">
                     <div id="leftHalf">
-                        <div id="hoverDiv1">
+                        <div className="hoverDiv">
                             <img id="img1" src={sandro} alt="Some logo" style={{...STYLES, opacity: this.state.opacity, transform: 'translateX(' + this.state.translate + ') scale(' + this.state.scale + ')', display:this.state.display}} onClick={this.leftClick.bind(this)} />
                         </div>
                     </div>
 
                     <div id="rightHalf">
-                        <div id="hoverDiv1">
+                        <div className="hoverDiv">
                             <img id="img2" src={dov} alt="Some logo" style={{...STYLES,opacity: this.state.opacity2, transform: 'translateX(' + this.state.translate2 + ') scale(' + this.state.scale2 + ')', display:this.state.display2}} onClick={this.rightClick.bind(this)} />
                         </div>
                     </div>
+                    </div>
                 </div>
             );
-        }else if(this.state.tab == 2){
+        }else if(this.state.tab === 2){
             return ( 
                 <div>
                     <Chat />
                 </div>
             );   
-        }else if(this.state.tab == 3){
+        }else if(this.state.tab === 3){
             return ( 
                 <div>
                     <Stickers />
+                </div>
+            );   
+        }else if(this.state.tab === 4){
+            return ( 
+                <div>
+                    <Stickers />
+                </div>
+            );   
+        }else if(this.state.tab === 5){
+            return ( 
+                <div>
+                    <Coloring />
                 </div>
             );   
         }
