@@ -43,10 +43,18 @@ class Drumset extends Component {
             tab: tab,
             instrChosen: instr
         })
-        
     }
     
     playInstrument = (url)=>{
+        this.setState({
+            playURL: url,
+            playStatus: "STOPPED"
+        }, ()=>{
+            this.setState({
+                playStatus: "PLAYING"
+            })    
+        })  
+        
         this.socket.emit("playInstrument", url);
     }
     
