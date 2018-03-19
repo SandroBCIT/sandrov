@@ -88,7 +88,7 @@ class App extends Component {
     render() {
         var comp = null;
         
-        if(this.state.tab == 1){
+        if(this.state.tab === 1){
             comp = (
                 
                 <Drumset />
@@ -97,10 +97,10 @@ class App extends Component {
                 /*
                 <div className="App" >
                     
-                    <button className="btn" onClick={this.openTab.bind(this, "2")} >Chat</button>
-                    <button className="btn" onClick={this.openTab.bind(this, "3")} >Stickers</button>
-                    <button className="btn" onClick={this.openTab.bind(this, "4")} >Drum Set</button>
-                    <button className="btn" onClick={this.openTab.bind(this, "5")} >Coloring</button>
+                    <button className="btn" onClick={this.openTab.bind(this, 2)} >Chat</button>
+                    <button className="btn" onClick={this.openTab.bind(this, 3)} >Stickers</button>
+                    <button className="btn" onClick={this.openTab.bind(this, 4)} >Drum Set</button>
+                    <button className="btn" onClick={this.openTab.bind(this, 5)} >Coloring</button>
                 
                     <div className="info" style={{transition: "all 1s ease-out", opacity: this.state.infoOpacity, display: this.state.infoDisplay}}>
                         <p>Alessandro</p>
@@ -134,23 +134,23 @@ class App extends Component {
                 </div>
                 */
             );
-        }else if(this.state.tab == 2){
+        }else if(this.state.tab === 2){
             comp = ( 
                     <Chat 
-                        goToHome={this.openTab.bind(this, "1")}
+                        goToHome={this.openTab.bind(this, 1)}
                     />
             );   
-        }else if(this.state.tab == 3){
+        }else if(this.state.tab === 3){
             comp = ( 
                     <Stickers 
-                        goToHome={this.openTab.bind(this, "1")}
+                        goToHome={this.openTab.bind(this, 1)}
                     />
             );   
-        }else if(this.state.tab == 4){
+        }else if(this.state.tab === 4){
             comp = ( 
                     <Drumset />
             );   
-        }else if(this.state.tab == 5){
+        }else if(this.state.tab === 5){
             comp = ( 
                     <Coloring />
             );   

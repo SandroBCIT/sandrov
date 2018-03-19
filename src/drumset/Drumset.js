@@ -17,6 +17,12 @@ class Drumset extends Component {
     
     componentDidMount(){
         this.socket = mySocket("http://localhost:10000"); 
+        
+        this.socket.on("userJoined", (data)=>{
+            this.setState({
+                allUsers: data   
+            })
+        })
     }
     
     changeTab = (tab, room)=>{
@@ -48,9 +54,17 @@ class Drumset extends Component {
     }
     
     render() {
+        var usersList = (
+            this.state.allUsers.map((obj, i)=>{
+                return(
+                    <p key={i}>{this.state.allUsers[i]}</p>   
+                );   
+            })   
+        )
+        
         var comp = null;
         
-        if(this.state.tab == 1){
+        if(this.state.tab === 1){
             comp = (
                 <div>
                     <button onClick={this.changeTab.bind(this, 2, "room1")}>Drum Room 1</button>
@@ -58,7 +72,7 @@ class Drumset extends Component {
                     <button onClick={this.changeTab.bind(this, 2, "room1")}>Drum Room 3</button>
                 </div>
             )    
-        }else if(this.state.tab == 2){
+        }else if(this.state.tab === 2){
             comp = (
                 <div>
                     <Sound 
@@ -77,6 +91,8 @@ class Drumset extends Component {
                     <button onClick={this.playInstrument.bind(this, "./sounds/Tom1.mp3")}>Tom Sm</button>
                     <button onClick={this.playInstrument.bind(this, "./sounds/Tom2.mp3")}>Tom Md</button>
                     <button onClick={this.playInstrument.bind(this, "./sounds/Tom3.mp3")}>Tom Lg</button>
+
+                    {usersList}
                 </div>
             )
         }
