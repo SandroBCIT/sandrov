@@ -16,7 +16,7 @@ class Drumset extends Component {
     }
     
     componentDidMount(){
-        this.socket = mySocket("http://localhost:10000"); 
+        this.socket = mySocket("https://herokusandrovserver3.herokuapp.com/"); 
         
         this.socket.on("userJoined", (data)=>{
             this.setState({
