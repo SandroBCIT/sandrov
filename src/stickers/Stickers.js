@@ -90,14 +90,14 @@ class Stickers extends Component {
         
         var allimgs = this.state.allUsers.map((obj, i)=>{
             return(
-                <img ref={"u"+obj} className="allImgs" src={this.state.myImg} height={50} key={i} />   
+                <img ref={"u"+obj} className="allImgs" src={this.state.myImg} alt="Img" height={50} key={i} />   
             );
         });
         
         var allStickers = this.state.stickers.map((obj, i)=>{
             var myStyle = {left:obj.x, top:obj.y};
             return(
-                <img style={myStyle} ref={"u"+obj} className="allImgs" src={this.state.myImg} height={50} key={i} />
+                <img style={myStyle} ref={"u"+obj} className="allImgs" src={this.state.myImg} alt="Img" height={50} key={i} />
             )    
         });
         var comp = null;
@@ -115,8 +115,8 @@ class Stickers extends Component {
                     </div>
                     <div id="controls">
                         {this.state.myId}
-                        <img src={this.state.myImg} height={50} onClick={this.handleImage} />
-                        <img src={this.state.myImg2} height={50} onClick={this.handleImage} />
+                        <img src={this.state.myImg} alt="Img" height={50} onClick={this.handleImage} />
+                        <img src={this.state.myImg2} alt="Img" height={50} onClick={this.handleImage} />
                     </div>  
                 </div>
             )

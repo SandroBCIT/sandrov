@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import sandro from './img/sandro.png';
 import dov from './img/dov.png';
-import bg from './img/bg.png';
 import Chat from './chat/Chat';
 import Stickers from './stickers/Stickers';
 import Drumset from './drumset/Drumset';
@@ -87,8 +86,10 @@ class App extends Component {
     
     
     render() {
-        if(this.state.tab === 1){
-            return (
+        var comp = null;
+        
+        if(this.state.tab == 1){
+            comp = (
                 <div className="App" >
                     
                     <button className="btn" onClick={this.openTab.bind(this, "2")} >Chat</button>
@@ -96,21 +97,21 @@ class App extends Component {
                     <button className="btn" onClick={this.openTab.bind(this, "4")} >Drum Set</button>
                     <button className="btn" onClick={this.openTab.bind(this, "5")} >Coloring</button>
                 
-                    <p id="info1" style={{transition: "all 1s ease-out", opacity: this.state.infoOpacity, display: this.state.infoDisplay}}>
+                    <div id="info1" style={{transition: "all 1s ease-out", opacity: this.state.infoOpacity, display: this.state.infoDisplay}}>
                         <p>Alessandro</p>
                         <p>Web Development Guru</p>
                         <p id="more1" style={{transition: "all 1s ease-out", opacity: this.state.linkOpacity}}>
-                            <a id="link1" href="http://gruni.ca" target="_blank" >learn more</a>
+                            <a id="link1" href="http://gruni.ca" target="_blank" rel="noopener noreferrer" >learn more</a>
                         </p>
-                    </p>                
+                    </div>                
 
-                    <p id="info2" style={{transition: "all 1s ease-out", opacity: this.state.infoOpacity2, display: this.state.infoDisplay2}}>
+                    <div id="info2" style={{transition: "all 1s ease-out", opacity: this.state.infoOpacity2, display: this.state.infoDisplay2}}>
                         <p>Dov</p>
                         <p>UI/UX Genius</p>
                         <p id="more2" style={{transition: "all 1s ease-out", opacity: this.state.linkOpacity2}}>
-                            <a id="link2" href="https://www.linkedin.com/in/dovkushnir/" target="_blank" >learn more</a>
+                            <a id="link2" href="https://www.linkedin.com/in/dovkushnir/" target="_blank" rel="noopener noreferrer" >learn more</a>
                         </p>
-                    </p>
+                    </div>
 
                     <div id="halfsContainer">
                     <div id="leftHalf">
@@ -127,32 +128,30 @@ class App extends Component {
                     </div>
                 </div>
             );
-        }else if(this.state.tab === 2){
-            return ( 
-                <div>
+        }else if(this.state.tab == 2){
+            comp = ( 
                     <Chat />
-                </div>
             );   
-        }else if(this.state.tab === 3){
-            return ( 
-                <div>
+        }else if(this.state.tab == 3){
+            comp = ( 
                     <Stickers />
-                </div>
             );   
-        }else if(this.state.tab === 4){
-            return ( 
-                <div>
-                    <Stickers />
-                </div>
+        }else if(this.state.tab == 4){
+            comp = ( 
+                    <Drumset />
             );   
-        }else if(this.state.tab === 5){
-            return ( 
-                <div>
+        }else if(this.state.tab == 5){
+            comp = ( 
                     <Coloring />
-                </div>
             );   
         }
-        
+
+        return(
+            <div>
+                {comp}
+            </div>
+        );
+
     }
 }
 
