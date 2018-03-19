@@ -100,6 +100,7 @@ class Chat extends Component {
         
         return (
             <div className="App">
+                <button onClick={this.props.goToHome}>BACK</button>
                 {comp}
                 <div>
                     People who are online <hr/> 

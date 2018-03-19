@@ -80,7 +80,7 @@
     transform: scale(1.04);
 }
 
-#info1{
+.info{
     position: absolute;
     top: 0;
     left: 0;
@@ -89,21 +89,8 @@
     font-size: 3em;
     color: aliceblue;
     line-height: 60%;
-    transform: translateY(-18%);
     z-index: 2;
-}
-
-#info2{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    font-family: Anton;
-    font-size: 3em;
-    color: aliceblue;
-    line-height: 60%;
-    transform: translateY(-18%);
-    z-index: 2;
+    padding-top: 3%;
 }
 
 #more1{

@@ -90,6 +90,11 @@ class App extends Component {
         
         if(this.state.tab == 1){
             comp = (
+                
+                <Drumset />
+                
+                
+                /*
                 <div className="App" >
                     
                     <button className="btn" onClick={this.openTab.bind(this, "2")} >Chat</button>
@@ -97,7 +102,7 @@ class App extends Component {
                     <button className="btn" onClick={this.openTab.bind(this, "4")} >Drum Set</button>
                     <button className="btn" onClick={this.openTab.bind(this, "5")} >Coloring</button>
                 
-                    <div id="info1" style={{transition: "all 1s ease-out", opacity: this.state.infoOpacity, display: this.state.infoDisplay}}>
+                    <div className="info" style={{transition: "all 1s ease-out", opacity: this.state.infoOpacity, display: this.state.infoDisplay}}>
                         <p>Alessandro</p>
                         <p>Web Development Guru</p>
                         <p id="more1" style={{transition: "all 1s ease-out", opacity: this.state.linkOpacity}}>
@@ -105,7 +110,7 @@ class App extends Component {
                         </p>
                     </div>                
 
-                    <div id="info2" style={{transition: "all 1s ease-out", opacity: this.state.infoOpacity2, display: this.state.infoDisplay2}}>
+                    <div className="info" style={{transition: "all 1s ease-out", opacity: this.state.infoOpacity2, display: this.state.infoDisplay2}}>
                         <p>Dov</p>
                         <p>UI/UX Genius</p>
                         <p id="more2" style={{transition: "all 1s ease-out", opacity: this.state.linkOpacity2}}>
@@ -127,14 +132,19 @@ class App extends Component {
                     </div>
                     </div>
                 </div>
+                */
             );
         }else if(this.state.tab == 2){
             comp = ( 
-                    <Chat />
+                    <Chat 
+                        goToHome={this.openTab.bind(this, "1")}
+                    />
             );   
         }else if(this.state.tab == 3){
             comp = ( 
-                    <Stickers />
+                    <Stickers 
+                        goToHome={this.openTab.bind(this, "1")}
+                    />
             );   
         }else if(this.state.tab == 4){
             comp = ( 

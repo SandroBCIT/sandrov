@@ -1,109 +1,71 @@
 import React, { Component } from 'react';
-import mySocket from 'socket.io-client';
+import mySocket from "socket.io-client";
+import DrumRooms from "./comp/DrumRooms";
+import '../App.css';
+import Sound from 'react-sound';
 
-class Chat extends Component {
+class Drumset extends Component {
     constructor(props){
         super(props);
-        
-        this.state = {
-            mode: 1
+        this.state={
+            allUsers: [],
+            playURL: "./sounds/Bass.mp3",
+            playStatus: "STOPPED",      
         }
-        
-        this.joinChat = this.joinChat.bind(this);
-        this.handleName = this.handleName.bind(this);
-        this.handleMyMsg = this.handleMyMsg.bind(this);
-        this.sendMsg = this.sendMsg.bind(this);
     }
     
     componentDidMount(){
-//        this.socket = mySocket("http://localhost:10001");
-    }
-    
-    joinRoom(){
-        this.setState({
-            mode: 2
-        })
-        this.socket = mySocket("https://herokusandrovserver.herokuapp.com/"); 
-        this.socket.emit("uname", this.state.myname);
-        this.socket.on("names", (data)=>{
-            this.setState({
-                allnames: data
-            });    
-        });
-        this.socket.on("msgs", (data)=>{
-            this.setState({
-                allmsgs: data
-            });
-        });
-    }
-    
-    handleName(evt){
-        this.setState({
-            myname: evt.target.value
-        })
-    }
-    
-    handleMyMsg(evt){
-        this.setState({
-            mymsg: evt.target.value
-        })
-    }
-    
-    sendMsg(){
-        var msg = this.state.myname + ": " + this.state.mymsg;     
+        this.socket = mySocket("https://herokusandrovserver2.herokuapp.com/");
         
-        this.socket.emit("sendmsg", msg);
+        this.socket.on("userjoined", (data)=>{
+            this.setState({              
+            }); 
+        });  
+    }
+    
+    playInstrument = (url)=>{
+        this.setState({
+            playURL: url,
+            playStatus: "STOPPED"
+        }, ()=>{
+            this.setState({
+                playStatus: "PLAYING"
+            })    
+        })      
+    }
+    
+    handleSongLoading = ()=>{
+    }
+    
+    handleSongPlaying = ()=>{
+    }
+    
+    handleSongFinishedPlaying = ()=>{
     }
     
     render() {
-        var comp = null;
-        
-        if(this.state.mode === 0){
-            comp = (
-                <div>
-                    <input type="text" placeholder="enter username" onChange={this.handleName} />
-                    <button onClick={this.joinChat}>Join Chat</button>
-                </div>
-            );
-        }else if(this.state.mode === 1){
-            
-            var allmsgs = this.state.allmsgs.map((obj, i)=>{
-                return(
-                    <div key={i}>
-                        {obj}
-                    </div>
-                )
-            })
-            
-            comp = (
-                <div id="chatBox">
-                    <div id="chatDisplay">{allmsgs}</div>    
-                    <div id="controls">
-                        <input type="text" placeholder="type message here" onChange={this.handleMyMsg}/>
-                        <button onClick={this.sendMsg}>Send</button>
-                    </div>
-                </div>
-            );
-        }
-        
-        var allnames = this.state.allnames.map((obj, i)=>{
-            return(
-                <div key={i}>
-                    {obj}
-                </div>
-            )
-        })
         
         return (
             <div className="App">
-                {comp}
-                <div>
-                    People who are online <hr/> 
-                    {allnames}
-                </div>
+                <Sound 
+                    url={this.state.playURL}
+                    playStatus={this.state.playStatus}
+                    onLoading={this.handleSongLoading}
+                    onPlaying={this.handleSongPlaying}
+                    onFinishedPlaying={this.handleSongFinishedPlaying} 
+                />
+            
+                <button onClick={this.playInstrument.bind(this, "./sounds/Bass.mp3")}>Bass</button>
+                <button onClick={this.playInstrument.bind(this, "./sounds/Snare.mp3")}>Snare</button>
+                <button onClick={this.playInstrument.bind(this, "./sounds/HiHat.mp3")}>HiHat</button>
+                <button onClick={this.playInstrument.bind(this, "./sounds/CrashSmall.mp3")}>Crash Sm</button>
+                <button onClick={this.playInstrument.bind(this, "./sounds/CrashLarge.mp3")}>Crash Lg</button>
+                <button onClick={this.playInstrument.bind(this, "./sounds/Tom1.mp3")}>Tom Sm</button>
+                <button onClick={this.playInstrument.bind(this, "./sounds/Tom2.mp3")}>Tom Md</button>
+                <button onClick={this.playInstrument.bind(this, "./sounds/Tom3.mp3")}>Tom Lg</button>
             </div>
         );
     }
 }
 
-export default Chat;
+export default Drumset;
