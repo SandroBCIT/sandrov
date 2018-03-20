@@ -11,7 +11,14 @@ class Drumset extends Component {
             tab: 1,
             allUsers: [],
             playURL: "./sounds/Bass.mp3",
-            playStatus: "STOPPED",      
+            playStatus1: "STOPPED",     
+            playStatus2: "STOPPED",     
+            playStatus3: "STOPPED",     
+            playStatus4: "STOPPED",     
+            playStatus5: "STOPPED",     
+            playStatus6: "STOPPED",     
+            playStatus7: "STOPPED",     
+            playStatus8: "STOPPED",      
         }
     }
     
@@ -24,8 +31,8 @@ class Drumset extends Component {
             })
         })
         
-        this.socket.on("playInstrument", (url)=>{
-            this.playInstrumentSent(url);
+        this.socket.on("playInstrument", (url, instr)=>{
+            this.playInstrument(url, instr, true);
         })
     }
     
@@ -45,37 +52,104 @@ class Drumset extends Component {
         })
     }
     
-    playInstrument = (url)=>{
-        this.setState({
-            playURL: url,
-            playStatus: "STOPPED"
-        }, ()=>{
+    playInstrument = (url, instr, localPlay)=>{
+        if(instr === 1){
             this.setState({
-                playStatus: "PLAYING"
-            })    
-        })  
+                playURL: url,
+                playStatus1: "STOPPED"
+            }, ()=>{
+                this.setState({
+                    playStatus1: "PLAYING"
+                })    
+            })     
+        }
+        if(instr === 2){
+            this.setState({
+                playURL: url,
+                playStatus2: "STOPPED"
+            }, ()=>{
+                this.setState({
+                    playStatus2: "PLAYING"
+                })    
+            })     
+        }
+        if(instr === 3){
+            this.setState({
+                playURL: url,
+                playStatus3: "STOPPED"
+            }, ()=>{
+                this.setState({
+                    playStatus3: "PLAYING"
+                })    
+            })     
+        }
+        if(instr === 4){
+            this.setState({
+                playURL: url,
+                playStatus4: "STOPPED"
+            }, ()=>{
+                this.setState({
+                    playStatus4: "PLAYING"
+                })    
+            })     
+        }
+        if(instr === 5){
+            this.setState({
+                playURL: url,
+                playStatus5: "STOPPED"
+            }, ()=>{
+                this.setState({
+                    playStatus5: "PLAYING"
+                })    
+            })     
+        }
+        if(instr === 6){
+            this.setState({
+                playURL: url,
+                playStatus6: "STOPPED"
+            }, ()=>{
+                this.setState({
+                    playStatus6: "PLAYING"
+                })    
+            })     
+        }
+        if(instr === 7){
+            this.setState({
+                playURL: url,
+                playStatus7: "STOPPED"
+            }, ()=>{
+                this.setState({
+                    playStatus7: "PLAYING"
+                })    
+            })     
+        }
+        if(instr === 8){
+            this.setState({
+                playURL: url,
+                playStatus8: "STOPPED"
+            }, ()=>{
+                this.setState({
+                    playStatus8: "PLAYING"
+                })    
+            })     
+        }
         
-        this.socket.emit("playInstrument", url);
-    }
-    
-    playInstrumentSent = (url)=>{
-        this.setState({
-            playURL: url,
-            playStatus: "STOPPED"
-        }, ()=>{
-            this.setState({
-                playStatus: "PLAYING"
-            })    
-        })    
-    }
-    
-    handleSongLoading = ()=>{
-    }
-    
-    handleSongPlaying = ()=>{
+        if(localPlay !== true){
+            this.socket.emit("playInstrument", url, instr);
+        }
     }
     
     handleSongFinishedPlaying = ()=>{
+        this.setState({
+            playStatus1: "STOPPED",
+            playStatus2: "STOPPED",
+            playStatus3: "STOPPED",
+            playStatus4: "STOPPED",
+            playStatus5: "STOPPED",
+            playStatus6: "STOPPED",
+            playStatus7: "STOPPED",
+            playStatus8: "STOPPED"
+        })
     }
     
     render() {
@@ -120,7 +194,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/Bass.mp3")}>Bass</button>
+                        <button onClick={this.playInstrument.bind(this, "./sounds/Bass.mp3", 1, false)}>Bass</button>
                         {usersList}
                     </div>
                 )
@@ -128,7 +202,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/Snare.mp3")}>Snare</button>
+                        <button onClick={this.playInstrument.bind(this, "./sounds/Snare.mp3", 2, false)}>Snare</button>
                         {usersList}
                     </div>
                 )    
@@ -136,7 +210,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/HiHat.mp3")}>HiHat</button>
+                        <button onClick={this.playInstrument.bind(this, "./sounds/HiHat.mp3", 3, false)}>HiHat</button>
                         {usersList}
                     </div>
                 )    
@@ -144,7 +218,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/CrashSmall.mp3")}>Crash Small</button>
+                        <button onClick={this.playInstrument.bind(this, "./sounds/CrashSmall.mp3", 4, false)}>Crash Small</button>
                         {usersList}
                     </div>
                 )    
@@ -152,7 +226,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/CrashLarge.mp3")}>Crash Large</button>
+                        <button onClick={this.playInstrument.bind(this, "./sounds/CrashLarge.mp3", 5, false)}>Crash Large</button>
                         {usersList}
                     </div>
                 )    
@@ -160,7 +234,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/Tom1.mp3")}>Tom1</button>
+                        <button onClick={this.playInstrument.bind(this, "./sounds/Tom1.mp3", 6, false)}>Tom1</button>
                         {usersList}
                     </div>
                 )    
@@ -168,7 +242,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/Tom2.mp3")}>Tom2</button>
+                        <button onClick={this.playInstrument.bind(this, "./sounds/Tom2.mp3", 7, false)}>Tom2</button>
                         {usersList}
                     </div>
                 )    
@@ -176,7 +250,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/Tom3.mp3")}>Tom3</button>
+                        <button onClick={this.playInstrument.bind(this, "./sounds/Tom3.mp3", 8, false)}>Tom3</button>
                         {usersList}
                     </div>
                 )    
@@ -187,9 +261,42 @@ class Drumset extends Component {
             <div className="App">
                 <Sound 
                     url={this.state.playURL}
-                    playStatus={this.state.playStatus}
-                    onLoading={this.handleSongLoading}
-                    onPlaying={this.handleSongPlaying}
+                    playStatus={this.state.playStatus1}
+                    onFinishedPlaying={this.handleSongFinishedPlaying} 
+                />
+                <Sound 
+                    url={this.state.playURL}
+                    playStatus={this.state.playStatus2}
+                    onFinishedPlaying={this.handleSongFinishedPlaying} 
+                />
+                <Sound 
+                    url={this.state.playURL}
+                    playStatus={this.state.playStatus3}
+                    onFinishedPlaying={this.handleSongFinishedPlaying} 
+                />
+                <Sound 
+                    url={this.state.playURL}
+                    playStatus={this.state.playStatus4}
+                    onFinishedPlaying={this.handleSongFinishedPlaying} 
+                />
+                <Sound 
+                    url={this.state.playURL}
+                    playStatus={this.state.playStatus5}
+                    onFinishedPlaying={this.handleSongFinishedPlaying} 
+                />
+                <Sound 
+                    url={this.state.playURL}
+                    playStatus={this.state.playStatus6}
+                    onFinishedPlaying={this.handleSongFinishedPlaying} 
+                />
+                <Sound 
+                    url={this.state.playURL}
+                    playStatus={this.state.playStatus7}
+                    onFinishedPlaying={this.handleSongFinishedPlaying} 
+                />
+                <Sound 
+                    url={this.state.playURL}
+                    playStatus={this.state.playStatus8}
                     onFinishedPlaying={this.handleSongFinishedPlaying} 
                 />
                 {comp}
