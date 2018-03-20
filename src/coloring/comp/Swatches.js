@@ -12,7 +12,6 @@ class Swatches extends React.Component {
     colorPicker = (color)=>{
         this.props.colorPicker(color);
     }
-//    black white red yellow blue purple lightGrey darkGrey
     render() {
         return (
             <div id="swatchDiv">

@@ -8,24 +8,24 @@ class Coloring extends React.Component {
     constructor() {
         super();
         this.state = {
-            frontDoorColor: "white",
-            mainFrameColor: "white",
-            rearDoorColor: "white",
-            rearIndicatorColor: "white",
-            sideIndicatorColor: "white",
-            rearHandleColor: "white",
-            frontHandleColor: "white",
-            ventsColor: "white",
-            rearTireShadowColor: "white",
-            rearHubColor: "white",
-            rearTireColor: "white",
-            frontTireColor: "white",
-            frontHubColor: "white",
-            rearWindowColor: "white",
-            windowTrimColor: "white",
-            mirrorColor: "white",
-            headLightsColor: "white",
-            tailLightsColor: "white",
+            frontDoorColor: "#ffffff",
+            mainFrameColor: "#ffffff",
+            rearDoorColor: "#ffffff",
+            rearIndicatorColor: "#ffffff",
+            sideIndicatorColor: "#ffffff",
+            rearHandleColor: "#ffffff",
+            frontHandleColor: "#ffffff",
+            ventsColor: "#ffffff",
+            rearTireShadowColor: "#ffffff",
+            rearHubColor: "#ffffff",
+            rearTireColor: "#ffffff",
+            frontTireColor: "#ffffff",
+            frontHubColor: "#ffffff",
+            rearWindowColor: "#ffffff",
+            windowTrimColor: "#ffffff",
+            mirrorColor: "#ffffff",
+            headLightsColor: "#ffffff",
+            tailLightsColor: "#ffffff",
             
             colorPicked: "#ffffff"
         };
@@ -35,14 +35,33 @@ class Coloring extends React.Component {
 //        this.socket = mySocket("https://herokusandrovserver3.herokuapp.com/"); 
         this.socket = mySocket("http://localhost:10000"); 
         
-        this.socket.on("userJoined", (data)=>{
+        this.socket.on("initializeColors", (data)=>{
             this.setState({
-                allUsers: data   
-            })
+                frontDoorColor: data.frontDoorColor,
+                mainFrameColor: data.mainFrameColor,
+                rearDoorColor: data.rearDoorColor,
+                rearIndicatorColor: data.rearIndicatorColor,
+                sideIndicatorColor: data.sideIndicatorColor,
+                rearHandleColor: data.rearHandleColor,
+                frontHandleColor: data.frontHandleColor,
+                ventsColor: data.ventsColor,
+                rearTireShadowColor: data.rearTireShadowColor,
+                rearHubColor: data.rearHubColor,
+                rearTireColor: data.rearTireColor,
+                frontTireColor: data.frontTireColor,
+                frontHubColor: data.frontHubColor,
+                rearWindowColor: data.rearWindowColor,
+                windowTrimColor: data.windowTrimColor,
+                mirrorColor: data.mirrorColor,
+                headLightsColor: data.headLightsColor,
+                tailLightsColor: data.tailLightsColor
+            });    
         })
         
-        this.socket.on("playInstrument", (url, instr)=>{
-            this.playInstrument(url, instr, "true");
+        this.socket.on("colorChange", (data)=>{
+            this.setState({
+                [data.part]: data.color
+            })      
         })
     }
     
@@ -50,6 +69,13 @@ class Coloring extends React.Component {
         this.setState({
             [carPart]: this.state.colorPicked
         })
+        
+        var obj = {
+            part: carPart,
+            color: this.state.colorPicked 
+        }
+        
+        this.socket.emit("colorChange", obj)
     }
     
     colorPicker = (color)=>{
