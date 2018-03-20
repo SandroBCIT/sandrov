@@ -27,7 +27,7 @@ class Coloring extends React.Component {
             headLightsColor: "white",
             tailLightsColor: "white",
             
-            colorPicked: "white"
+            colorPicked: "#ffffff"
         };
     }
     
@@ -45,36 +45,37 @@ class Coloring extends React.Component {
 
     render() {
         return (
-            <div id="coloringWrapper">
-                <Golf 
-                    partClicked={this.partClicked}
-            
-                    frontDoorColor={this.state.frontDoorColor}
-                    mainFrameColor = {this.state.mainFrameColor}
-                    rearDoorColor = {this.state.rearDoorColor}
-                    rearIndicatorColor = {this.state.rearIndicatorColor}
-                    sideIndicatorColor = {this.state.sideIndicatorColor}
-                    rearHandleColor = {this.state.rearHandleColor}
-                    frontHandleColor = {this.state.frontHandleColor}
-                    ventsColor = {this.state.ventsColor}
-                    rearTireShadowColor = {this.state.rearTireShadowColor}
-                    rearHubColor = {this.state.rearHubColor}
-                    rearTireColor = {this.state.rearTireColor}
-                    frontTireColor = {this.state.frontTireColor}
-                    frontHubColor = {this.state.frontHubColor}
-                    rearWindowColor = {this.state.rearWindowColor}
-                    windowTrimColor = {this.state.windowTrimColor}
-                    mirrorColor = {this.state.mirrorColor}
-                    headLightsColor = {this.state.headLightsColor}
-                    tailLightsColor = {this.state.tailLightsColor}
-            
-                />
-                <div>
-                    <Swatches
-                        colorPicker={this.colorPicker}
-                    />  
+            <div id="coloringBG">
+                <div id="coloringWrapper">
+                    <Golf 
+                        partClicked={this.partClicked}
+
+                        frontDoorColor={this.state.frontDoorColor}
+                        mainFrameColor = {this.state.mainFrameColor}
+                        rearDoorColor = {this.state.rearDoorColor}
+                        rearIndicatorColor = {this.state.rearIndicatorColor}
+                        sideIndicatorColor = {this.state.sideIndicatorColor}
+                        rearHandleColor = {this.state.rearHandleColor}
+                        frontHandleColor = {this.state.frontHandleColor}
+                        ventsColor = {this.state.ventsColor}
+                        rearTireShadowColor = {this.state.rearTireShadowColor}
+                        rearHubColor = {this.state.rearHubColor}
+                        rearTireColor = {this.state.rearTireColor}
+                        frontTireColor = {this.state.frontTireColor}
+                        frontHubColor = {this.state.frontHubColor}
+                        rearWindowColor = {this.state.rearWindowColor}
+                        windowTrimColor = {this.state.windowTrimColor}
+                        mirrorColor = {this.state.mirrorColor}
+                        headLightsColor = {this.state.headLightsColor}
+                        tailLightsColor = {this.state.tailLightsColor}
+
+                    />
+                    <div>
+                        <Swatches
+                            colorPicker={this.colorPicker}
+                        />  
+                    </div>
                 </div>
-            
             </div>
         )
     }

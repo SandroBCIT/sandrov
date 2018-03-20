@@ -119,14 +119,23 @@
     justify-content: space-between;
     align-items: center;
     margin: auto;
-    width: 90%;
-    margin-top: 2%;
+    width: 80%;
+    padding-top: 2%;
     height: auto;
+}
+
+#swatchDiv{
+    margin-top: 20%;
+}
+
+#coloringBG{
+    height: 100vh;
+    background: linear-gradient(white, black);
 }
 
 .swatch{
     height: 50px;
-    width: 100px;
+    width: auto;
 }
 
 

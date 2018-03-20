@@ -136,23 +136,23 @@ class App extends Component {
             );
         }else if(this.state.tab === 2){
             comp = ( 
-                    <Chat 
-                        goToHome={this.openTab.bind(this, 1)}
-                    />
+                <Chat 
+                    goToHome={this.openTab.bind(this, 1)}
+                />
             );   
         }else if(this.state.tab === 3){
             comp = ( 
-                    <Stickers 
-                        goToHome={this.openTab.bind(this, 1)}
-                    />
+                <Stickers 
+                    goToHome={this.openTab.bind(this, 1)}
+                />
             );   
         }else if(this.state.tab === 4){
-            comp = ( 
-                    <Drumset />
+            comp = (
+                <Drumset />
             );   
         }else if(this.state.tab === 5){
             comp = ( 
-                    <Coloring />
+                <Coloring />
             );   
         }
 
