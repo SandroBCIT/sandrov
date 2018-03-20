@@ -38,9 +38,7 @@
 
 #leftHalf{
     height: 100vh;
-    width: 50%;
-    display: flex;
-    flex-direction: row-reverse;
+    width: 50vw;
     overflow: hidden;
     z-index: 1;
 }
@@ -48,20 +46,20 @@
 #rightHalf{
     height: 100vh;
     width: 50%;
-    display: flex;
-    flex-direction: row;
     overflow: hidden;
     z-index: 1;
 }
 
 #img1{
     height: 100%;
-    overflow: hidden;
+    position: relative;
+    float: right;
 }
 
 #img2{
     height: 100%;
-    overflow: hidden;
+    position: relative;
+    float: left;
 }   
  
 .hoverDiv{
@@ -186,6 +184,12 @@ img{
     height: 30px;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.6s ease-in-out;
+}
+
+.btn:hover{
+    transition: all 0.1s ease-in-out;
+    background-color: darkgray;
 }
 
 .instrument{
