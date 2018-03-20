@@ -32,7 +32,7 @@ class Coloring extends React.Component {
     }
     
     componentDidMount(){
-//        this.socket = mySocket("https://herokusandrovserver3.herokuapp.com/"); 
+//        this.socket = mySocket("https://herokusandrovserver4.herokuapp.com/"); 
         this.socket = mySocket("http://localhost:10000"); 
         
         this.socket.on("initializeColors", (data)=>{
