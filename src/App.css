@@ -113,6 +113,16 @@
     color: inherit;
 }
 
+#coloringWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 90%;
+    height: auto;
+}
+
 
 
 

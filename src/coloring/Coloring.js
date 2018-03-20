@@ -137,7 +137,7 @@ class Coloring extends React.Component {
 
     render() {
         return (
-            <div>
+            <div id="coloringWrapper">
                 <Golf 
                     frontDoorColor={this.state.frontDoorColor}
                     frontDoorClick={this.frontDoorClick}
