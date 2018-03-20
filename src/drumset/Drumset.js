@@ -32,7 +32,7 @@ class Drumset extends Component {
         })
         
         this.socket.on("playInstrument", (url, instr)=>{
-            this.playInstrument(url, instr, true);
+            this.playInstrument(url, instr, "true");
         })
     }
     
@@ -134,7 +134,7 @@ class Drumset extends Component {
             })     
         }
         
-        if(localPlay !== true){
+        if(localPlay !== "true"){
             this.socket.emit("playInstrument", url, instr);
         }
     }
@@ -194,7 +194,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/Bass.mp3", 1, false)}>Bass</button>
+                        <button onClick={this.playInstrument.bind(this, "./sounds/Bass.mp3", 1, "false")}>Bass</button>
                         {usersList}
                     </div>
                 )
@@ -202,7 +202,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/Snare.mp3", 2, false)}>Snare</button>
+                        <button onClick={this.playInstrument.bind(this, "./sounds/Snare.mp3", 2, "false")}>Snare</button>
                         {usersList}
                     </div>
                 )    
@@ -218,7 +218,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/CrashSmall.mp3", 4, false)}>Crash Small</button>
+                        <button onClick={this.playInstrument.bind(this, "./sounds/CrashSmall.mp3", 4, "false")}>Crash Small</button>
                         {usersList}
                     </div>
                 )    
@@ -226,7 +226,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/CrashLarge.mp3", 5, false)}>Crash Large</button>
+                        <button onClick={this.playInstrument.bind(this, "./sounds/CrashLarge.mp3", 5, "false")}>Crash Large</button>
                         {usersList}
                     </div>
                 )    
@@ -234,7 +234,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/Tom1.mp3", 6, false)}>Tom1</button>
+                        <button onClick={this.playInstrument.bind(this, "./sounds/Tom1.mp3", 6, "false")}>Tom1</button>
                         {usersList}
                     </div>
                 )    
@@ -242,7 +242,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/Tom2.mp3", 7, false)}>Tom2</button>
+                        <button onClick={this.playInstrument.bind(this, "./sounds/Tom2.mp3", 7, "false")}>Tom2</button>
                         {usersList}
                     </div>
                 )    
@@ -250,7 +250,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/Tom3.mp3", 8, false)}>Tom3</button>
+                        <button onClick={this.playInstrument.bind(this, "./sounds/Tom3.mp3", 8, "false")}>Tom3</button>
                         {usersList}
                     </div>
                 )    
