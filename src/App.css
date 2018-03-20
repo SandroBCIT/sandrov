@@ -29,11 +29,6 @@
     align-items: flex-start;
 }
 
-.btn{
-    position: relative;
-    cursor: pointer;
-}
-
 #halfsContainer{
     display: flex;
     flex-direction: row;
@@ -178,8 +173,20 @@ img{
     width: 80%;
 }
 
+.backBtn{
+    z-index: 9999;
+    position: absolute;
+    top: 1%;
+    left: 1%;
+}
 
-
+.btn{
+    margin: 10px;
+    border-radius: 5px;
+    height: 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
 
 
 

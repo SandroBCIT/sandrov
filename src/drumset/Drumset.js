@@ -194,7 +194,7 @@ class Drumset extends Component {
             if(this.state.instrChosen === "Bass"){
                 comp = (
                     <div>
-                        <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
+                        <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
                         <button onClick={this.playInstrument.bind(this, "./sounds/Bass.mp3", 1, "false")}>Bass</button>
                         {usersList}
                     </div>
@@ -202,7 +202,7 @@ class Drumset extends Component {
             }else if(this.state.instrChosen === "Snare"){
                 comp = (
                     <div>
-                        <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
+                        <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
                         <button onClick={this.playInstrument.bind(this, "./sounds/Snare.mp3", 2, "false")}>Snare</button>
                         {usersList}
                     </div>
@@ -210,7 +210,7 @@ class Drumset extends Component {
             }else if(this.state.instrChosen === "HiHat"){
                 comp = (
                     <div>
-                        <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
+                        <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
                         <button onClick={this.playInstrument.bind(this, "./sounds/HiHat.mp3", 3, false)}>HiHat</button>
                         {usersList}
                     </div>
@@ -218,7 +218,7 @@ class Drumset extends Component {
             }else if(this.state.instrChosen === "CrashSmall"){
                 comp = (
                     <div>
-                        <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
+                        <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
                         <button onClick={this.playInstrument.bind(this, "./sounds/CrashSmall.mp3", 4, "false")}>Crash Small</button>
                         {usersList}
                     </div>
@@ -226,7 +226,7 @@ class Drumset extends Component {
             }else if(this.state.instrChosen === "CrashLarge"){
                 comp = (
                     <div>
-                        <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
+                        <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
                         <button onClick={this.playInstrument.bind(this, "./sounds/CrashLarge.mp3", 5, "false")}>Crash Large</button>
                         {usersList}
                     </div>
@@ -234,7 +234,7 @@ class Drumset extends Component {
             }else if(this.state.instrChosen === "Tom1"){
                 comp = (
                     <div>
-                        <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
+                        <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
                         <button onClick={this.playInstrument.bind(this, "./sounds/Tom1.mp3", 6, "false")}>Tom1</button>
                         {usersList}
                     </div>
@@ -242,7 +242,7 @@ class Drumset extends Component {
             }else if(this.state.instrChosen === "Tom2"){
                 comp = (
                     <div>
-                        <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
+                        <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
                         <button onClick={this.playInstrument.bind(this, "./sounds/Tom2.mp3", 7, "false")}>Tom2</button>
                         {usersList}
                     </div>
@@ -250,7 +250,7 @@ class Drumset extends Component {
             }else if(this.state.instrChosen === "Tom3"){
                 comp = (
                     <div>
-                        <button onClick={this.changeTab.bind(this, 2)}>BACK</button>
+                        <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
                         <button onClick={this.playInstrument.bind(this, "./sounds/Tom3.mp3", 8, "false")}>Tom3</button>
                         {usersList}
                     </div>
@@ -300,6 +300,8 @@ class Drumset extends Component {
                     playStatus={this.state.playStatus8}
                     onFinishedPlaying={this.handleSongFinishedPlaying} 
                 />
+            
+                <button className="btn backBtn" onClick={this.props.goToHome}>BACK</button>
                 {comp}
             </div>
         );

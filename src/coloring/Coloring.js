@@ -133,6 +133,7 @@ class Coloring extends React.Component {
     render() {
         return (
             <div id="coloringWrapper">
+                <button className="btn backBtn" onClick={this.props.goToHome}>BACK</button>
                 <Golf 
                     partClicked={this.partClicked}
 

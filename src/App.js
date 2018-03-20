@@ -90,12 +90,7 @@ class App extends Component {
         
         if(this.state.tab === 1){
             comp = (
-                
-                <Coloring />
-                
-                
-                /*
-                <div className="App" >
+                <div className="App">
                     
                     <button className="btn" onClick={this.openTab.bind(this, 2)} >Chat</button>
                     <button className="btn" onClick={this.openTab.bind(this, 3)} >Stickers</button>
@@ -132,7 +127,6 @@ class App extends Component {
                     </div>
                     </div>
                 </div>
-                */
             );
         }else if(this.state.tab === 2){
             comp = ( 
@@ -148,16 +142,20 @@ class App extends Component {
             );   
         }else if(this.state.tab === 4){
             comp = (
-                <Drumset />
+                <Drumset 
+                    goToHome={this.openTab.bind(this, 1)}
+                />
             );   
         }else if(this.state.tab === 5){
             comp = ( 
-                <Coloring />
+                <Coloring 
+                    goToHome={this.openTab.bind(this, 1)}
+                />
             );   
         }
 
         return(
-            <div>
+            <div className="App">
                 {comp}
             </div>
         );

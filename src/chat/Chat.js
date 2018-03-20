@@ -66,7 +66,7 @@ class Chat extends Component {
             comp = (
                 <div>
                     <input type="text" placeholder="enter username" onChange={this.handleName} />
-                    <button onClick={this.joinChat}>Join Chat</button>
+                    <button className="btn" onClick={this.joinChat}>Join Chat</button>
                 </div>
             );
         }else if(this.state.mode === 1){
@@ -84,7 +84,7 @@ class Chat extends Component {
                     <div id="chatDisplay">{allmsgs}</div>    
                     <div id="controls">
                         <input type="text" placeholder="type message here" onChange={this.handleMyMsg}/>
-                        <button onClick={this.sendMsg}>Send</button>
+                        <button className="btn" onClick={this.sendMsg}>Send</button>
                     </div>
                 </div>
             );
@@ -100,7 +100,7 @@ class Chat extends Component {
         
         return (
             <div className="App">
-                <button onClick={this.props.goToHome}>BACK</button>
+                <button className="btn backBtn" onClick={this.props.goToHome}>BACK</button>
                 {comp}
                 <div>
                     People who are online <hr/> 

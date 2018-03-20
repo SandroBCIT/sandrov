@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import mySocket from "socket.io-client";
 import Rooms from "./comp/Rooms";
-import '../App.css';
+import './App.css';
 
 class Stickers extends Component {
     constructor(props){
@@ -124,7 +124,7 @@ class Stickers extends Component {
         
         return (
             <div className="App">
-                <button onClick={this.props.goToHome}>BACK</button>
+                <button className="btn backBtn" onClick={this.props.goToHome}>BACK</button>
                 {comp}
             </div>
         );
