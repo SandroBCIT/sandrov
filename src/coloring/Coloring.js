@@ -9,7 +9,6 @@ class Coloring extends React.Component {
         this.state = {
             frontDoorColor: "white",
             mainFrameColor: "white",
-            frontDoorColor: "white",
             rearDoorColor: "white",
             rearIndicatorColor: "white",
             sideIndicatorColor: "white",
@@ -41,6 +40,52 @@ class Coloring extends React.Component {
         this.setState({
             colorPicked: color
         }) 
+        
+        var element = document.getElementById("coloringBG");
+        switch(color) {
+            case "#000000":
+                element.className = "";
+                element.classList.add("blackBrush");
+                break;
+            case "#ffffff":
+                element.className = "";
+                element.classList.add("whiteBrush");
+                break;
+            case "#ff0000":
+                element.className = "";
+                element.classList.add("redBrush");
+                break;
+            case "#ff6c20":
+                element.className = "";
+                element.classList.add("orangeBrush");
+                break;
+            case "#fffd07":
+                element.className = "";
+                element.classList.add("yellowBrush");
+                break;
+            case "#689a10":
+                element.className = "";
+                element.classList.add("greenBrush");
+                break;
+            case "#0036e9":
+                element.className = "";
+                element.classList.add("blueBrush");
+                break;
+            case "#9123f3":
+                element.className = "";
+                element.classList.add("purpleBrush");
+                break;
+            case "#bfbfbf":
+                element.className = "";
+                element.classList.add("lightgreyBrush");
+                break;
+            case "#5f5f5f":
+                element.className = "";
+                element.classList.add("darkgreyBrush");
+                break;
+            default:
+                document.getElementById("coloringBG").style.cursor = 'url("./svg/brushes/brush_white.png"), auto';   
+        }
     }
 
     render() {

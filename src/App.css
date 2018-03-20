@@ -131,12 +131,54 @@
 #coloringBG{
     height: 100vh;
     background: linear-gradient(white, black);
+    cursor: url("./coloring/svg/brushes/brush_white.png"), auto;
+}
+
+.blackBrush{
+    cursor: url("./coloring/svg/brushes/brush_black.png"), auto !important;
+}
+.whiteBrush{
+    cursor: url("./coloring/svg/brushes/brush_white.png"), auto !important;
+}
+.redBrush{
+    cursor: url("./coloring/svg/brushes/brush_red.png"), auto !important;
+}
+.orangeBrush{
+    cursor: url("./coloring/svg/brushes/brush_orange.png"), auto !important;
+}
+.yellowBrush{
+    cursor: url("./coloring/svg/brushes/brush_yellow.png"), auto !important;
+}
+.greenBrush{
+    cursor: url("./coloring/svg/brushes/brush_green.png"), auto !important;
+}
+.blueBrush{
+    cursor: url("./coloring/svg/brushes/brush_blue.png"), auto !important;
+}
+.purpleBrush{
+    cursor: url("./coloring/svg/brushes/brush_purple.png"), auto !important;
+}
+.lightgreyBrush{
+    cursor: url("./coloring/svg/brushes/brush_lightgrey.png"), auto !important;
+}
+.darkgreyBrush{
+    cursor: url("./coloring/svg/brushes/brush_darkgrey.png"), auto !important;
+}
+
+img{
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .swatch{
     height: 50px;
     width: auto;
 }
+
 
 
 
