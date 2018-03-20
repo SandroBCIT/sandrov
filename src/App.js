@@ -42,7 +42,8 @@ class App extends Component {
             opacity2: 0,
             translate: '-200%',
             scale: 5,
-            infoDisplay: 'block'
+            infoDisplay: 'block',
+            showHomeBackBtn: true
         });
         setTimeout(()=>{
             this.setState({
@@ -66,7 +67,8 @@ class App extends Component {
             opacity2: 0,
             translate2: '200%',
             scale2: 5,
-            infoDisplay2: 'block'
+            infoDisplay2: 'block',
+            showHomeBackBtn: true
         });   
         setTimeout(()=>{
             this.setState({
@@ -97,12 +99,19 @@ class App extends Component {
     }
     
     render() {
+        var homeBackBtn = null;
+        if(this.state.showHomeBackBtn === true){
+            homeBackBtn = (
+                <button className="btn backBtn" onClick={this.reloadPage}>BACK</button>   
+            )
+        }
+        
         var comp = null;
         
         if(this.state.tab === 1){
             comp = (
                 <div className="App">
-                    <button className="btn backBtn" onClick={this.reloadPage}>BACK</button>
+                    {homeBackBtn}
                     <div id="btnContainer">  
                         <button className="btn homeBtn" onClick={this.openTab.bind(this, 2)} >Chat</button>
                         <button className="btn homeBtn" onClick={this.openTab.bind(this, 3)} >Stickers</button>
