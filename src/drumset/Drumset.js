@@ -18,7 +18,8 @@ class Drumset extends Component {
             playStatus5: "STOPPED",     
             playStatus6: "STOPPED",     
             playStatus7: "STOPPED",     
-            playStatus8: "STOPPED",      
+            playStatus8: "STOPPED",    
+            playStatus9: "STOPPED",      
         }
     }
     
@@ -134,6 +135,16 @@ class Drumset extends Component {
                 })    
             })     
         }
+        if(instr === 9){
+            this.setState({
+                playURL: url,
+                playStatus9: "STOPPED"
+            }, ()=>{
+                this.setState({
+                    playStatus9: "PLAYING"
+                })    
+            })     
+        }
         
         if(localPlay === "false"){
             this.socket.emit("playInstrument", url, instr);
@@ -149,7 +160,8 @@ class Drumset extends Component {
             playStatus5: "STOPPED",
             playStatus6: "STOPPED",
             playStatus7: "STOPPED",
-            playStatus8: "STOPPED"
+            playStatus8: "STOPPED",
+            playStatus9: "STOPPED"
         })
     }
     
@@ -167,26 +179,27 @@ class Drumset extends Component {
         if(this.state.tab === 1){
             comp = (
                 <div>
-                    <button onClick={this.joinRoom.bind(this, 2, "room1")}>Drum Room 1</button>
-                    <button onClick={this.joinRoom.bind(this, 2, "room1")}>Drum Room 2</button>
-                    <button onClick={this.joinRoom.bind(this, 2, "room1")}>Drum Room 3</button>
+                    <button className="btn" onClick={this.joinRoom.bind(this, 2, "room1")}>Drum Room 1</button>
+                    <button className="btn" onClick={this.joinRoom.bind(this, 2, "room1")}>Drum Room 2</button>
+                    <button className="btn" onClick={this.joinRoom.bind(this, 2, "room1")}>Drum Room 3</button>
                 </div>
             )    
         }else if(this.state.tab === 2){
             comp = (
                 <div>
-                    <p>Choose Your Instrument</p>
+                    <p style={{color:"white", fontWeight:500, fontSize: "2em"}}>Choose Your Instrument</p>
                 
-                    <button onClick={this.changeTab.bind(this, 1)}>BACK</button>
+                    <button className="btn" onClick={this.changeTab.bind(this, 1)}>BACK</button><br /><br />
                 
-                    <button onClick={this.changeTab.bind(this, 3, "Bass")}>Bass</button>
-                    <button onClick={this.changeTab.bind(this, 3, "Snare")}>Snare</button>
-                    <button onClick={this.changeTab.bind(this, 3, "HiHat")}>HiHat</button>
-                    <button onClick={this.changeTab.bind(this, 3, "CrashSmall")}>Crash Small</button>
-                    <button onClick={this.changeTab.bind(this, 3, "CrashLarge")}>Crash Large</button>
-                    <button onClick={this.changeTab.bind(this, 3, "Tom1")}>Tom1</button>
-                    <button onClick={this.changeTab.bind(this, 3, "Tom2")}>Tom2</button>
-                    <button onClick={this.changeTab.bind(this, 3, "Tom3")}>Tom3</button>
+                    <button className="btn" onClick={this.changeTab.bind(this, 3, "Bass")}>Bass</button>
+                    <button className="btn" onClick={this.changeTab.bind(this, 3, "Snare")}>Snare</button>
+                    <button className="btn" onClick={this.changeTab.bind(this, 3, "HiHat")}>HiHat</button>
+                    <button className="btn" onClick={this.changeTab.bind(this, 3, "CrashSmall")}>Crash Small</button>
+                    <button className="btn" onClick={this.changeTab.bind(this, 3, "CrashLarge")}>Crash Large</button>
+                    <button className="btn" onClick={this.changeTab.bind(this, 3, "Tom1")}>Tom1</button>
+                    <button className="btn" onClick={this.changeTab.bind(this, 3, "Tom2")}>Tom2</button>
+                    <button className="btn" onClick={this.changeTab.bind(this, 3, "Tom3")}>Tom3</button>
+                    <button className="btn" onClick={this.changeTab.bind(this, 3, "Ride")}>Ride</button>
                     {usersList}
                 </div>
             )            
@@ -195,7 +208,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/Bass.mp3", 1, "false")}>Bass</button>
+                        <img className="instrument"  onClick={this.playInstrument.bind(this, "./sounds/Bass.mp3", 1, "false")} src={require('./img/Bass.png')}/>
                         {usersList}
                     </div>
                 )
@@ -203,7 +216,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/Snare.mp3", 2, "false")}>Snare</button>
+                        <img className="instrument" onClick={this.playInstrument.bind(this, "./sounds/Snare.mp3", 2, "false")} src={require('./img/Snare.png')}/>
                         {usersList}
                     </div>
                 )    
@@ -211,7 +224,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/HiHat.mp3", 3, false)}>HiHat</button>
+                        <img className="instrument"  onClick={this.playInstrument.bind(this, "./sounds/HiHat.mp3", 3, "false")} src={require('./img/HiHat.png')}/>
                         {usersList}
                     </div>
                 )    
@@ -219,7 +232,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/CrashSmall.mp3", 4, "false")}>Crash Small</button>
+                        <img className="instrument"  onClick={this.playInstrument.bind(this, "./sounds/CrashSmall.mp3", 4, "false")} src={require('./img/CrashSmall.png')}/>
                         {usersList}
                     </div>
                 )    
@@ -227,7 +240,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/CrashLarge.mp3", 5, "false")}>Crash Large</button>
+                        <img className="instrument"  onClick={this.playInstrument.bind(this, "./sounds/CrashLarge.mp3", 5, "false")} src={require('./img/CrashLarge.png')}/>
                         {usersList}
                     </div>
                 )    
@@ -235,7 +248,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/Tom1.mp3", 6, "false")}>Tom1</button>
+                        <img className="instrument"  onClick={this.playInstrument.bind(this, "./sounds/Tom1.mp3", 6, "false")} src={require('./img/Tom1.png')}/>
                         {usersList}
                     </div>
                 )    
@@ -243,7 +256,7 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/Tom2.mp3", 7, "false")}>Tom2</button>
+                        <img className="instrument"  onClick={this.playInstrument.bind(this, "./sounds/Tom2.mp3", 7, "false")} src={require('./img/Tom2.png')}/>
                         {usersList}
                     </div>
                 )    
@@ -251,7 +264,15 @@ class Drumset extends Component {
                 comp = (
                     <div>
                         <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
-                        <button onClick={this.playInstrument.bind(this, "./sounds/Tom3.mp3", 8, "false")}>Tom3</button>
+                        <img className="instrument"  onClick={this.playInstrument.bind(this, "./sounds/Tom3.mp3", 8, "false")} src={require('./img/Tom3.png')}/>
+                        {usersList}
+                    </div>
+                )    
+            }else if(this.state.instrChosen === "Ride"){
+                comp = (
+                    <div>
+                        <button className="btn backBtn" onClick={this.changeTab.bind(this, 2)}>BACK</button>
+                        <img className="instrument"  onClick={this.playInstrument.bind(this, "./sounds/Ride.mp3", 9, "false")} src={require('./img/Ride.png')}/>
                         {usersList}
                     </div>
                 )    
@@ -298,6 +319,11 @@ class Drumset extends Component {
                 <Sound 
                     url={this.state.playURL}
                     playStatus={this.state.playStatus8}
+                    onFinishedPlaying={this.handleSongFinishedPlaying} 
+                />
+                <Sound 
+                    url={this.state.playURL}
+                    playStatus={this.state.playStatus9}
                     onFinishedPlaying={this.handleSongFinishedPlaying} 
                 />
             

@@ -122,7 +122,7 @@ class App extends Component {
 
                     <div id="rightHalf">
                         <div className="hoverDiv">
-                            <img id="img2" src={dov} alt="Some logo" style={{...STYLES,opacity: this.state.opacity2, transform: 'translateX(' + this.state.translate2 + ') scale(' + this.state.scale2 + ')', display:this.state.display2}} onClick={this.rightClick.bind(this)} />
+                            <img id="img2" src={dov} alt="Some logo" style={{...STYLES, opacity: this.state.opacity2, transform: 'translateX(' + this.state.translate2 + ') scale(' + this.state.scale2 + ')', display:this.state.display2}} onClick={this.rightClick.bind(this)} />
                         </div>
                     </div>
                     </div>
