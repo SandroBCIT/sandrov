@@ -75,6 +75,8 @@ class Stickers extends Component {
     }
     
     handleImage(evt){
+        console.log(evt.target.src)
+        
         this.refs["u"+this.state.myId].src = evt.target.src;        
     }
     
@@ -97,9 +99,11 @@ class Stickers extends Component {
         var allStickers = this.state.stickers.map((obj, i)=>{
             var myStyle = {left:obj.x, top:obj.y};
             return(
-                <img style={myStyle} ref={"u"+obj} className="allImgs" src={this.state.myImg} alt="Img" height={50} key={i} />
+                <img style={myStyle} ref={"u"+obj} className="allImgs" src={obj.src} alt="Img" height={50} key={i} />
             )    
         });
+        
+        
         var comp = null;
         
         if(this.state.showDisplay === false){
