@@ -27,14 +27,20 @@ class Coloring extends React.Component {
             headLightsColor: "white",
             tailLightsColor: "white",
             
-            selectedColor: "white"
+            colorPicked: "white"
         };
     }
     
     partClicked = (carPart)=>{
         this.setState({
-            [carPart]: "green"
+            [carPart]: this.state.colorPicked
         })
+    }
+    
+    colorPicker = (color)=>{
+        this.setState({
+            colorPicked: color
+        }) 
     }
 
     render() {
@@ -65,7 +71,7 @@ class Coloring extends React.Component {
                 />
                 <div>
                     <Swatches
-                        colorPick={this.colorPick}
+                        colorPicker={this.colorPicker}
                     />  
                 </div>
             
