@@ -35,6 +35,8 @@ class App extends Component {
     }
     
     leftClick = ()=>{
+        this.hideBtns();
+        
         this.setState({
             opacity: 0,
             opacity2: 0,
@@ -57,6 +59,8 @@ class App extends Component {
     }
     
     rightClick = ()=>{
+        this.hideBtns();
+        
         this.setState({
             opacity: 0,
             opacity2: 0,
@@ -78,12 +82,19 @@ class App extends Component {
         }, 2500);
     }
      
+    hideBtns = ()=>{
+        document.getElementById("btnContainer").classList.add("hideBtns");
+    }
+    
     openTab = (data) =>{
         this.setState({
             tab: data
         });     
     }
     
+    reloadPage = ()=>{
+        window.location.reload();    
+    }
     
     render() {
         var comp = null;
@@ -91,17 +102,18 @@ class App extends Component {
         if(this.state.tab === 1){
             comp = (
                 <div className="App">
-                    
-                    <button className="btn" onClick={this.openTab.bind(this, 2)} >Chat</button>
-                    <button className="btn" onClick={this.openTab.bind(this, 3)} >Stickers</button>
-                    <button className="btn" onClick={this.openTab.bind(this, 4)} >Drum Set</button>
-                    <button className="btn" onClick={this.openTab.bind(this, 5)} >Coloring</button>
-                
+                    <button className="btn backBtn" onClick={this.reloadPage}>BACK</button>
+                    <div id="btnContainer">  
+                        <button className="btn homeBtn" onClick={this.openTab.bind(this, 2)} >Chat</button>
+                        <button className="btn homeBtn" onClick={this.openTab.bind(this, 3)} >Stickers</button>
+                        <button className="btn homeBtn" onClick={this.openTab.bind(this, 4)} >Drum Set</button>
+                        <button className="btn homeBtn" onClick={this.openTab.bind(this, 5)} >Coloring</button>
+                    </div>
                     <div className="info" style={{transition: "all 1s ease-out", opacity: this.state.infoOpacity, display: this.state.infoDisplay}}>
                         <p>Alessandro</p>
                         <p>Web Development Guru</p>
                         <p id="more1" style={{transition: "all 1s ease-out", opacity: this.state.linkOpacity}}>
-                            <a id="link1" href="http://gruni.ca" target="_blank" rel="noopener noreferrer" >learn more</a>
+                            <a id="link1" href="https://www.linkedin.com/in/alessandrogrunwald" target="_blank" rel="noopener noreferrer" >learn more</a>
                         </p>
                     </div>                
 

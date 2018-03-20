@@ -27,7 +27,9 @@ class Chat extends Component {
         this.setState({
             mode:1
         })
-        this.socket = mySocket("https://herokusandrovserver.herokuapp.com/"); 
+        this.socket = mySocket("https://herokusandrovserver.herokuapp.com/");
+//        this.socket = mySocket("http://localhost:10000");
+        
         this.socket.emit("uname", this.state.myname);
         this.socket.on("names", (data)=>{
             this.setState({

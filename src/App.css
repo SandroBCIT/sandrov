@@ -193,8 +193,24 @@ img{
     height: 60vh;
 }
 
+.hideBtns{
+    transform: translateY(-50vh);
+    transition: all 1s ease-in-out;
+}
 
+#btnContainer{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    z-index: 2;
+}
 
+input{
+    font-size: 1.2em;
+}
 
 
 
