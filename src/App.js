@@ -91,7 +91,7 @@ class App extends Component {
         if(this.state.tab === 1){
             comp = (
                 
-                <Drumset />
+                <Coloring />
                 
                 
                 /*
