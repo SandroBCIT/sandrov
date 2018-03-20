@@ -120,7 +120,13 @@
     align-items: center;
     margin: auto;
     width: 90%;
+    margin-top: 2%;
     height: auto;
+}
+
+.swatch{
+    height: 50px;
+    width: 100px;
 }
 
 

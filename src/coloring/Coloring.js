@@ -1,6 +1,7 @@
 import React from 'react';
-import Golf from './svg/Golf.js';
+import Golf from './svg/Golf';
 import '../App.css';
+import Swatches from './comp/Swatches';
 
 class Coloring extends React.Component {
     constructor() {
@@ -14,17 +15,24 @@ class Coloring extends React.Component {
             sideIndicatorColor: "white",
             rearHandleColor: "white",
             frontHandleColor: "white",
-            something3Color: "white",
+            ventsColor: "white",
             rearTireShadowColor: "white",
             rearHubColor: "white",
             rearTireColor: "white",
             frontTireColor: "white",
             frontHubColor: "white",
-            frontLogoColor: "black",
             rearWindowColor: "white",
             windowTrimColor: "white",
-            rearLogoColor: "black"
+            mirrorColor: "white",
+            headLightsColor: "white",
+            tailLightsColor: "white"
         };
+    }
+    
+    partClicked(carPart){
+        this.setState({
+            [carPart.target.value]: "green"
+        })
     }
     
     frontDoorClick = ()=>{
@@ -75,9 +83,9 @@ class Coloring extends React.Component {
         }) 
     }
     
-    something3Click = ()=>{
+    ventsClick = ()=>{
         this.setState({
-            something3Color: "green"
+            ventsColor: "green"
         }) 
     }
     
@@ -111,12 +119,6 @@ class Coloring extends React.Component {
         })
     }
     
-    frontLogoClick = ()=>{
-        this.setState({
-            frontLogoColor: "green"
-        })
-    }
-    
     rearWindowClick = ()=>{
         this.setState({
             rearWindowColor: "green"
@@ -129,72 +131,87 @@ class Coloring extends React.Component {
         })
     }
     
-    rearLogoClick = ()=>{
+    mirrorClick = ()=>{
         this.setState({
-            rearLogoColor: "green"
-        }) 
+            mirrorColor: "green"
+        })
+    }
+    
+    headLightsClick = ()=>{
+        this.setState({
+            headLightsColor: "green"
+        })     
+    }
+    
+    tailLightsClick = ()=>{
+        this.setState({
+            tailLightsColor: "green"
+        })     
     }
 
     render() {
         return (
             <div id="coloringWrapper">
                 <Golf 
+                    frontDoorClick={this.partClicked.bind(this, "frontDoorColor")}
                     frontDoorColor={this.state.frontDoorColor}
-                    frontDoorClick={this.frontDoorClick}
             
-                    mainFrameClick = {this.mainFrameClick}
+                    mainFrameClick = {this.partClicked.bind(this, "mainFrameColor")}
                     mainFrameColor = {this.state.mainFrameColor}
 
-                    frontDoorClick = {this.frontDoorClick}
-                    frontDoorColor = {this.state.frontDoorColor}
-
-                    rearDoorClick = {this.rearDoorClick}
+                    rearDoorClick = {this.partClicked.bind(this, "rearDoorColor")}
                     rearDoorColor = {this.state.rearDoorColor}
 
-                    rearIndicatorClick = {this.rearIndicatorClick}
+                    rearIndicatorClick = {this.partClicked.bind(this, "rearIndicatorColor")}
                     rearIndicatorColor = {this.state.rearIndicatorColor}
 
-                    sideIndicatorClick = {this.sideIndicatorClick}
+                    sideIndicatorClick = {this.partClicked.bind(this, "sideIndicatorColor")}
                     sideIndicatorColor = {this.state.sideIndicatorColor}
 
-                    rearHandleClick = {this.rearHandleClick}
+                    rearHandleClick = {this.partClicked.bind(this, "rearHandleColor")}
                     rearHandleColor = {this.state.rearHandleColor}
 
-                    frontHandleClick = {this.frontHandleClick}
+                    frontHandleClick = {this.partClicked.bind(this, "frontHandleColor")}
                     frontHandleColor = {this.state.frontHandleColor}
 
-                    something3Click = {this.something3Click}
-                    something3Color = {this.state.something3Color}
+                    ventsClick = {this.partClicked.bind(this, "ventsColor")}
+                    ventsColor = {this.state.ventsColor}
 
-                    rearTireShadowClick = {this.rearTireShadowClick}
+                    rearTireShadowClick = {this.partClicked.bind(this, "rearTireShadowColor")}
                     rearTireShadowColor = {this.state.rearTireShadowColor}
 
-                    rearHubClick = {this.rearHubClick}
+                    rearHubClick = {this.partClicked.bind(this, "rearHubColor")}
                     rearHubColor = {this.state.rearHubColor}
 
-                    rearTireClick = {this.rearTireClick}
+                    rearTireClick = {this.partClicked.bind(this, "rearTireColor")}
                     rearTireColor = {this.state.rearTireColor}
 
-                    frontTireClick = {this.frontTireClick}
+                    frontTireClick = {this.partClicked.bind(this, "frontTireColor")}
                     frontTireColor = {this.state.frontTireColor}
 
-                    frontHubClick = {this.frontHubClick}
+                    frontHubClick = {this.partClicked.bind(this, "frontHubColor")}
                     frontHubColor = {this.state.frontHubColor}
 
-                    frontLogoClick = {this.frontLogoClick}
-                    frontLogoColor = {this.state.frontLogoColor}
-
-                    rearWindowClick = {this.rearWindowClick}
+                    rearWindowClick = {this.partClicked.bind(this, "rearWindowColor")}
                     rearWindowColor = {this.state.rearWindowColor}
 
-                    windowTrimClick = {this.windowTrimClick}
+                    windowTrimClick = {this.partClicked.bind(this, "windowTrimColor")}
                     windowTrimColor = {this.state.windowTrimColor}
+
+                    mirrorClick = {this.partClicked.bind(this, "mirrorColor")}
+                    mirrorColor = {this.state.mirrorColor}
             
-                    rearLogoClick = {this.rearLogoClick}
-                    rearLogoColor = {this.state.rearLogoColor}
+                    headLightsClick = {this.partClicked.bind(this, "headLightsColor")}
+                    headLightsColor = {this.state.headLightsColor}
             
-                
+                    tailLightsClick = {this.partClicked.bind(this, "tailLightsColor")}
+                    tailLightsColor = {this.state.tailLightsColor}
+            
                 />
+                <div>
+                    <Swatches />  
+                </div>
+            
             </div>
         )
     }

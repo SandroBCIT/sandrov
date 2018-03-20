@@ -1,33 +1,34 @@
 import React from 'react';
+import '../../App.css';
 
 class Swatches extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      
-    };
-  }
+    constructor() {
+        super();
+        this.state = {
 
-  render() {
-    
-    return (
-      <div id="swatchDiv">
-        <button id="black" className="swatch"></button>
-        <button id="white" className="swatch"></button>
-        <br/>
-        <button id="red" className="swatch"></button>
-        <button id="orange" className="swatch"></button>
-        <br/>
-        <button id="yellow" className="swatch"></button>
-        <button id="green" className="swatch"></button>
-        <br/>
-        <button id="blue" className="swatch"></button>
-        <button id="purple" className="swatch"></button>
-        <br/>
-        <button id="lightGrey" className="swatch"></button>
-        <button id="darkGrey" className="swatch"></button>
-      </div>
-    )
-  }
+        };
+    }
+
+    render() {
+        return (
+            <div id="swatchDiv">
+                <button style={{backgroundColor: "black"}} className="swatch"></button>
+                <button style={{backgroundColor: "white"}} className="swatch"></button>
+                <br/>
+                <button style={{backgroundColor: "red"}} className="swatch"></button>
+                <button style={{backgroundColor: "orange"}} className="swatch"></button>
+                <br/>
+                <button style={{backgroundColor: "yellow"}} className="swatch"></button>
+                <button style={{backgroundColor: "green"}} className="swatch"></button>
+                <br/>
+                <button style={{backgroundColor: "blue"}} className="swatch"></button>
+                <button style={{backgroundColor: "purple"}} className="swatch"></button>
+                <br/>
+                <button style={{backgroundColor: "lightGrey"}} className="swatch"></button>
+                <button style={{backgroundColor: "darkGrey"}} className="swatch"></button>
+            </div>
+        )
+    }
 }
+
 export default Swatches;
