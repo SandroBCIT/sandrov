@@ -116,22 +116,17 @@
 #coloringWrapper{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin: auto;
-    width: 80%;
-    padding-top: 2%;
-    height: auto;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(white, black);
+    cursor: url("./coloring/svg/brushes/brush_white.png"), auto;
 }
 
 #swatchDiv{
     margin-top: 20%;
-}
-
-#coloringBG{
-    height: 100vh;
-    background: linear-gradient(white, black);
-    cursor: url("./coloring/svg/brushes/brush_white.png"), auto;
 }
 
 .blackBrush{
@@ -175,11 +170,13 @@ img{
 }
 
 .swatch{
-    height: 50px;
+    height: 80px;
     width: auto;
 }
 
-
+#golf{
+    width: 80%;
+}
 
 
 

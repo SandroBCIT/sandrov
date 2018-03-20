@@ -1,4 +1,5 @@
 import React from 'react';
+import mySocket from "socket.io-client";
 import Golf from './svg/Golf';
 import '../App.css';
 import Swatches from './comp/Swatches';
@@ -30,6 +31,21 @@ class Coloring extends React.Component {
         };
     }
     
+    componentDidMount(){
+//        this.socket = mySocket("https://herokusandrovserver3.herokuapp.com/"); 
+        this.socket = mySocket("http://localhost:10000"); 
+        
+        this.socket.on("userJoined", (data)=>{
+            this.setState({
+                allUsers: data   
+            })
+        })
+        
+        this.socket.on("playInstrument", (url, instr)=>{
+            this.playInstrument(url, instr, "true");
+        })
+    }
+    
     partClicked = (carPart)=>{
         this.setState({
             [carPart]: this.state.colorPicked
@@ -41,7 +57,7 @@ class Coloring extends React.Component {
             colorPicked: color
         }) 
         
-        var element = document.getElementById("coloringBG");
+        var element = document.getElementById("coloringWrapper");
         switch(color) {
             case "#000000":
                 element.className = "";
@@ -90,36 +106,34 @@ class Coloring extends React.Component {
 
     render() {
         return (
-            <div id="coloringBG">
-                <div id="coloringWrapper">
-                    <Golf 
-                        partClicked={this.partClicked}
+            <div id="coloringWrapper">
+                <Golf 
+                    partClicked={this.partClicked}
 
-                        frontDoorColor={this.state.frontDoorColor}
-                        mainFrameColor = {this.state.mainFrameColor}
-                        rearDoorColor = {this.state.rearDoorColor}
-                        rearIndicatorColor = {this.state.rearIndicatorColor}
-                        sideIndicatorColor = {this.state.sideIndicatorColor}
-                        rearHandleColor = {this.state.rearHandleColor}
-                        frontHandleColor = {this.state.frontHandleColor}
-                        ventsColor = {this.state.ventsColor}
-                        rearTireShadowColor = {this.state.rearTireShadowColor}
-                        rearHubColor = {this.state.rearHubColor}
-                        rearTireColor = {this.state.rearTireColor}
-                        frontTireColor = {this.state.frontTireColor}
-                        frontHubColor = {this.state.frontHubColor}
-                        rearWindowColor = {this.state.rearWindowColor}
-                        windowTrimColor = {this.state.windowTrimColor}
-                        mirrorColor = {this.state.mirrorColor}
-                        headLightsColor = {this.state.headLightsColor}
-                        tailLightsColor = {this.state.tailLightsColor}
+                    frontDoorColor={this.state.frontDoorColor}
+                    mainFrameColor = {this.state.mainFrameColor}
+                    rearDoorColor = {this.state.rearDoorColor}
+                    rearIndicatorColor = {this.state.rearIndicatorColor}
+                    sideIndicatorColor = {this.state.sideIndicatorColor}
+                    rearHandleColor = {this.state.rearHandleColor}
+                    frontHandleColor = {this.state.frontHandleColor}
+                    ventsColor = {this.state.ventsColor}
+                    rearTireShadowColor = {this.state.rearTireShadowColor}
+                    rearHubColor = {this.state.rearHubColor}
+                    rearTireColor = {this.state.rearTireColor}
+                    frontTireColor = {this.state.frontTireColor}
+                    frontHubColor = {this.state.frontHubColor}
+                    rearWindowColor = {this.state.rearWindowColor}
+                    windowTrimColor = {this.state.windowTrimColor}
+                    mirrorColor = {this.state.mirrorColor}
+                    headLightsColor = {this.state.headLightsColor}
+                    tailLightsColor = {this.state.tailLightsColor}
 
-                    />
-                    <div>
-                        <Swatches
-                            colorPicker={this.colorPicker}
-                        />  
-                    </div>
+                />
+                <div>
+                    <Swatches
+                        colorPicker={this.colorPicker}
+                    />  
                 </div>
             </div>
         )

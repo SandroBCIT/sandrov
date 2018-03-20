@@ -1,11 +1,12 @@
 import React, {  Component } from "react";
+import '../../App.css';
 
 class Golf extends Component {
     
 render(){
     return(
         
-  <svg viewBox="0 0 476.51 164.9" >
+  <svg viewBox="0 0 476.51 164.9" id="golf">
     <title>Golf_2</title>
     <path
       fill="#333"
